@@ -1403,7 +1403,7 @@ include $(BUILD_SHARED_LIBRARY)
 # that can enable, or disable specific checks. Note also that some of
 # the checks are available only in emulator and are implemeted in
 # libc_malloc_qemu_instrumented.so.
-ifneq ($(TARGET_BUILD_VARIANT),user)
+ifeq ($(TARGET_BUILD_VARIANT),eng)
 
 # ========================================================
 # libc_malloc_debug_leak.so
@@ -1491,7 +1491,7 @@ LOCAL_NATIVE_COVERAGE := $(bionic_coverage)
 $(eval $(call patch-up-arch-specific-flags,LOCAL_CFLAGS,libc_common_cflags))
 include $(BUILD_SHARED_LIBRARY)
 
-endif  #!user
+endif  #eng
 
 # ========================================================
 # libstdc++.so
